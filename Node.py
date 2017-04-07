@@ -4,15 +4,22 @@ class BinaryTree():
       self.left = None
       self.right = None
       self.rootid = rootid
+      self.Lines = []
+      self.f = 0
+      self.split = 0
 
     def getLeftChild(self):
         return self.left
     def getRightChild(self):
         return self.right
-    def setNodeValue(self,value):
-        self.rootid = value
+    def setNodeLines(self,value):
+        self.Lines.append(value)
+    def setNodef(self,value):
+        self.f = value
+    def setNodeSplit(self,value):
+        self.split = value
     def getNodeValue(self):
-        return self.rootid
+        return self.rootid ," - ",self.f," - ",self.split
 
     def insertRight(self,newNode):
         if self.right == None:
@@ -30,11 +37,9 @@ class BinaryTree():
             self.left = tree
             tree.left = self.left
 
-
-def printTree(tree):
-        if tree != None:
-            printTree(tree.getLeftChild())
-            print(tree.getNodeValue())
-            printTree(tree.getRightChild())
-
-        
+def testTree():
+    myTree = BinaryTree("Maud")
+    myTree.insertLeft("Bob")
+    myTree.insertRight("Tony")
+    myTree.insertRight("Steven")
+    printTree(myTree)
